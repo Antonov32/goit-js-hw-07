@@ -44,9 +44,15 @@ const images = [
 // Усі елементи галереї додані в DOM за одну операцію додавання
 // Є мінімальне оформлення галереї флексбоксами через CSS класи
 
-const imagesGallery = images.forEach(({ url, alt }) => {
-  const imgGallery = document.createElement("img");
-  console.log(imgGallery);
-});
-console.log(imagesGallery);
-// const imgGallery = document.createElement("img");
+const allGallery = document.querySelector(".gallery");
+
+const imagesGallery = ({ url, alt }) =>
+  `<li>
+    <img src="${url}" alt="${alt} width = 50px height = 40px">
+  </li>`;
+const galleryMarkup = images.reduce((acc, img) => acc + imagesGallery(img), []);
+allGallery.insertAdjacentHTML("beforeend", galleryMarkup);
+allGallery.setAttribute(
+  "style",
+  "list-style-type:none; display: flex; flex-flow: row wrap;"
+);
