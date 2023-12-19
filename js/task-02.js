@@ -52,7 +52,4 @@ const imagesGallery = ({ url, alt }) =>
   </li>`;
 const galleryMarkup = images.reduce((acc, img) => acc + imagesGallery(img), []);
 allGallery.insertAdjacentHTML("beforeend", galleryMarkup);
-allGallery.setAttribute(
-  "style",
-  "list-style-type:none; display: flex; flex-flow: row wrap;"
-);
+allGallery.setAttribute("style", "list-style-type:none; display: flex;");
