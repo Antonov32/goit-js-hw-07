@@ -21,7 +21,7 @@ const body = document.querySelector("body");
 const btn = document.querySelector(".change-color");
 const text = document.querySelector(".color");
 
-const changeColor = (event) => {
+const changeColor = () => {
   text.textContent = body.style.backgroundColor = getRandomHexColor();
 };
 

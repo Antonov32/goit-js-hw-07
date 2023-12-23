@@ -28,6 +28,41 @@ function getRandomHexColor() {
 
 // Для очищення колекції після натискання на кнопку Destroy створи функцію destroyBoxes(), яка очищає вміст div#boxes, у такий спосіб видаляючи всі створені елементи.
 
+const controls = document.querySelector(".controls");
+const createBtn = document.querySelector("[data-create]");
+const destroyBtn = document.querySelector("[data-destroy]");
+const boxes = document.querySelector("#boxes");
+const typeNumberBtn = document.querySelector('[type="number"]');
+
+createBtn.addEventListener("click", () => {
+  if (
+    Number(typeNumberBtn.value) > Number(typeNumberBtn.max) ||
+    Number(typeNumberBtn.value) < Number(typeNumberBtn.min)
+  ) {
+  } else {
+    createBoxes(typeNumberBtn.value);
+  }
+  typeNumberBtn.value = "";
+});
+
+function createBoxes(amount) {
+  let size = 30;
+  const newBoxesArr = [];
+  for (let i = 0; i < amount; i += 1) {
+    size += 10;
+    const newDivEl = `<div class="box" style="display: block; margin-right: 30px; margin-bottom: 30px; background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px;"></div>`;
+    newBoxesArr.push(newDivEl);
+  }
+  boxes.insertAdjacentHTML("beforeend", newBoxesArr.join(""));
+}
+
+destroyBtn.addEventListener("click", destroyBoxes);
+
+function destroyBoxes() {
+  typeNumberBtn.value = "";
+  boxes.innerHTML = "";
+}
+
 // На що буде звертати увагу ментор при перевірці:
 // Після кліку на кнопку Create, якщо в input значення поза межами діапазону 1-100, нічого не відбувається
 // Після кліку на кнопку Create в div#boxes додається така кількість різнокольорових квадратів, яка вказана в input. Значення input очищається
