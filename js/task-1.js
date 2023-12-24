@@ -44,9 +44,9 @@
 const categories = document.querySelectorAll("li.item");
 console.log(`Number of categories: ${categories.length}`);
 
-categories.forEach((categorie) => {
-  const nameCategorie = categorie.querySelector("h2").innerHTML;
-  const quantityElements = categorie.querySelectorAll("li").length;
+categories.forEach((category) => {
+  const nameCategorie = category.querySelector("h2").textContent;
+  const quantityElements = category.querySelectorAll("li").length;
   console.log(`Category: ${nameCategorie}`);
   console.log(`Elements: ${quantityElements}`);
 });
