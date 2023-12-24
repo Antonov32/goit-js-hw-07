@@ -46,11 +46,12 @@ createBtn.addEventListener("click", () => {
 });
 
 function createBoxes(amount) {
-  let size = 30;
+  destroyBoxes();
+  let size = 20;
   const newBoxesArr = [];
   for (let i = 0; i < amount; i += 1) {
     size += 10;
-    const newDivEl = `<div class="box" style="display: block; margin-right: 30px; margin-bottom: 30px; background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px;"></div>`;
+    const newDivEl = `<div class="box" style="margin-top: 10px; background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px;"></div>`;
     newBoxesArr.push(newDivEl);
   }
   boxes.insertAdjacentHTML("beforeend", newBoxesArr.join(""));
