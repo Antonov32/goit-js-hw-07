@@ -18,14 +18,16 @@ function getRandomHexColor() {
 // Зверни увагу, що функція getRandomHexColor() повертає колір у hex-форматі, в той час як колір фону на <body> буде у форматі rgb. Це нормально й не потребує якихось правок.
 
 const body = document.querySelector("body");
-const btn = document.querySelector(".change-color");
-const text = document.querySelector(".color");
+const changeColorButton = document.querySelector(".change-color");
+const colorValueSpan = document.querySelector(".color");
 
 const changeColor = () => {
-  text.textContent = body.style.backgroundColor = getRandomHexColor();
+  const color = getRandomHexColor();
+  body.style.backgroundColor = color;
+  colorValueSpan.textContent = color;
 };
 
-btn.addEventListener("click", changeColor);
+changeColorButton.addEventListener("click", changeColor);
 
 // На що буде звертати увагу ментор при перевірці:
 // Фон на <body> задається тільки після кліку на button.change-color
