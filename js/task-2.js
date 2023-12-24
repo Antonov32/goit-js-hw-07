@@ -48,8 +48,8 @@ const allGallery = document.querySelector(".gallery");
 
 const imagesGallery = ({ url, alt }) =>
   `<li>
-    <img src="${url}" alt="${alt} width = 50px height = 40px">
+    <img src="${url}" alt="${alt}" width = 360 height = auto">
   </li>`;
-const galleryMarkup = images.reduce((acc, img) => acc + imagesGallery(img), []);
+const galleryMarkup = images.reduce((acc, img) => acc + imagesGallery(img), "");
 allGallery.insertAdjacentHTML("beforeend", galleryMarkup);
-allGallery.setAttribute("style", "list-style-type:none; display: flex;");
+allGallery.setAttribute("style", "list-style-type:none");
